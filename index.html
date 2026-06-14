@@ -1,15 +1,505 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PigManager</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@latest/dist/web/static/pretendard.css" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PigManager — 마인크래프트 서버, 누구나 쉽게</title>
+<link rel="icon" type="image/jpeg" href="data:image/jpeg;base64,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" />
+<meta name="description" content="마인크래프트 서버를 누구나 쉽게 열고 관리하는 데스크탑 앱. 서버 시작/정지, 콘솔, 플레이어 관리, 모드 자동 설치까지." />
+
+<!-- Open Graph (디스코드/카톡 공유 미리보기) -->
+<meta property="og:title" content="PigManager — 마인크래프트 서버, 누구나 쉽게" />
+<meta property="og:description" content="서버 시작/정지, 콘솔, 플레이어 관리, 모드 자동 설치까지. 마인크래프트 서버 관리 데스크탑 앱." />
+<meta property="og:type" content="website" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@latest/dist/web/static/pretendard.css" />
+
+<style>
+  :root {
+    --bg:        #0d1117;
+    --bg2:       #161b22;
+    --bg3:       #21262d;
+    --border:    #30363d;
+    --border2:   #3d444d;
+    --text:      #e6edf3;
+    --text2:     #8b949e;
+    --text3:     #6e7681;
+    --green:     #39d353;
+    --green-dim: #2ea043;
+    --green-bg:  #0d2818;
+    --pink:      #ff8fb1;   /* 돼지 핑크 — 액센트의 액센트, 아주 절제해서 */
+    --mono: 'SF Mono', 'JetBrains Mono', 'Consolas', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Pretendard', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--green); color: #000; }
+
+  /* 스크롤바 */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 5px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text3); }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(13, 17, 23, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1080px; margin: 0 auto; padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 9px;
+    font-weight: 800; font-size: 17px; letter-spacing: -0.02em;
+  }
+  .logo-mark {
+    width: 30px; height: 30px; border-radius: 8px;
+    overflow: hidden;
+    display: grid; place-items: center;
+    box-shadow: 0 0 18px rgba(57, 211, 83, 0.35);
+  }
+  .logo-mark img {
+    width: 100%; height: 100%; object-fit: cover;
+    image-rendering: pixelated;
+  }
+  .nav-links { display: flex; align-items: center; gap: 8px; }
+  .nav-links a {
+    padding: 7px 14px; border-radius: 7px; font-size: 14px; font-weight: 600;
+    color: var(--text2); transition: color .15s, background .15s;
+  }
+  .nav-links a:hover { color: var(--text); background: var(--bg3); }
+  .nav-links a.discord:hover { color: #c9b8ff; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    padding: 90px 0 70px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 500px;
+    background: radial-gradient(ellipse at center, rgba(57,211,83,0.13), transparent 65%);
+    pointer-events: none;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 5px 13px; border-radius: 20px;
+    background: var(--green-bg); border: 1px solid #1a4228;
+    color: var(--green); font-size: 13px; font-weight: 700;
+    font-family: var(--mono);
+    margin-bottom: 26px;
+  }
+  .badge .dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
+
+  h1 {
+    font-size: clamp(36px, 6vw, 60px);
+    font-weight: 800; line-height: 1.1; letter-spacing: -0.03em;
+    margin-bottom: 22px;
+  }
+  h1 .accent {
+    background: linear-gradient(120deg, var(--green), #7ee787);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p.sub {
+    font-size: clamp(16px, 2.5vw, 19px);
+    color: var(--text2); max-width: 560px; margin: 0 auto 36px;
+  }
+  .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 13px 26px; border-radius: 10px;
+    font-size: 15px; font-weight: 700; font-family: inherit;
+    border: 1px solid transparent; cursor: pointer;
+    transition: transform .12s, box-shadow .2s, background .15s, border-color .15s;
+  }
+  .btn i { font-size: 19px; }
+  .btn-primary {
+    background: var(--green); color: #07210f;
+    box-shadow: 0 4px 20px rgba(57,211,83,0.28);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(57,211,83,0.42); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-ghost {
+    background: var(--bg3); color: var(--text); border-color: var(--border2);
+  }
+  .btn-ghost:hover { background: var(--bg2); border-color: var(--text3); transform: translateY(-2px); }
+  .hero .meta {
+    margin-top: 18px; font-size: 13px; color: var(--text3);
+    font-family: var(--mono);
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  }
+  .hero .meta span { display: inline-flex; align-items: center; gap: 5px; }
+
+  /* ── 콘솔 미리보기 (시그니처) ── */
+  .console-preview {
+    max-width: 760px; margin: 56px auto 0;
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    text-align: left;
+  }
+  .console-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 16px; border-bottom: 1px solid var(--border);
+    background: var(--bg3);
+  }
+  .console-bar .dots { display: flex; gap: 6px; }
+  .console-bar .dots span { width: 12px; height: 12px; border-radius: 50%; }
+  .dot-r { background: #ff5f57; } .dot-y { background: #febc2e; } .dot-g { background: #28c840; }
+  .console-bar .title {
+    margin-left: 8px; font-family: var(--mono); font-size: 13px; color: var(--text2);
+  }
+  .console-body {
+    padding: 18px 20px; font-family: var(--mono); font-size: 13px; line-height: 1.9;
+    min-height: 200px;
+  }
+  .c-line { display: flex; gap: 10px; }
+  .c-time { color: var(--text3); flex-shrink: 0; }
+  .c-tag { flex-shrink: 0; font-weight: 700; }
+  .c-tag.info { color: #58a6ff; }
+  .c-tag.join { color: var(--green); }
+  .c-tag.warn { color: #e3b341; }
+  .c-msg { color: var(--text); }
+  .c-cursor { color: var(--green); }
+  .blink { animation: blink 1.1s step-end infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* ── 섹션 공통 ── */
+  section { padding: 80px 0; }
+  .eyebrow {
+    font-family: var(--mono); font-size: 13px; font-weight: 700;
+    color: var(--green); letter-spacing: 0.05em; text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(26px, 4vw, 36px); font-weight: 800;
+    letter-spacing: -0.02em; margin-bottom: 14px;
+  }
+  .section-desc { color: var(--text2); font-size: 16px; max-width: 540px; }
+  .section-head { margin-bottom: 48px; }
+
+  /* ── 기능 그리드 ── */
+  .features {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  }
+  .feature {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 12px; padding: 26px 24px;
+    transition: border-color .2s, transform .2s, background .2s;
+  }
+  .feature:hover { border-color: var(--border2); transform: translateY(-3px); background: #1a2029; }
+  .feature .ic {
+    width: 46px; height: 46px; border-radius: 10px;
+    background: var(--green-bg); border: 1px solid #1a4228;
+    display: grid; place-items: center; margin-bottom: 18px;
+    color: var(--green); font-size: 23px;
+  }
+  .feature h3 { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .feature p { font-size: 14px; color: var(--text2); line-height: 1.65; }
+
+  /* ── 다운로드 CTA ── */
+  .download-box {
+    background: linear-gradient(135deg, var(--bg2), #131a13);
+    border: 1px solid #1a4228; border-radius: 18px;
+    padding: 50px 40px; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .download-box::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(57,211,83,0.1), transparent 60%);
+    pointer-events: none;
+  }
+  .download-box h2 { font-size: clamp(24px, 4vw, 32px); font-weight: 800; margin-bottom: 12px; letter-spacing: -0.02em; }
+  .download-box p { color: var(--text2); margin-bottom: 30px; }
+  .dl-meta {
+    margin-top: 22px; font-family: var(--mono); font-size: 13px; color: var(--text3);
+    display: flex; gap: 18px; justify-content: center; flex-wrap: wrap;
+  }
+  .dl-meta b { color: var(--text2); font-weight: 600; }
+
+  /* ── 커뮤니티 ── */
+  .community {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .comm-card {
+    border-radius: 14px; padding: 32px;
+    border: 1px solid var(--border); background: var(--bg2);
+    display: flex; flex-direction: column; gap: 14px;
+    transition: transform .2s, border-color .2s;
+  }
+  .comm-card:hover { transform: translateY(-3px); }
+  .comm-card.discord { border-color: #3c3580; background: linear-gradient(160deg, #1a1830, var(--bg2)); }
+  .comm-card.discord:hover { border-color: #5865F2; }
+  .comm-card.support { border-color: #5c4a1e; background: linear-gradient(160deg, #221c10, var(--bg2)); }
+  .comm-card.support:hover { border-color: var(--green); }
+  .comm-ic { font-size: 30px; }
+  .comm-card.discord .comm-ic { color: #c9b8ff; }
+  .comm-card.support .comm-ic { color: #e3b341; }
+  .comm-card h3 { font-size: 19px; font-weight: 700; }
+  .comm-card p { font-size: 14px; color: var(--text2); flex: 1; }
+  .comm-link {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-weight: 700; font-size: 14px; color: var(--green);
+  }
+  .comm-card.discord .comm-link { color: #c9b8ff; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border); padding: 40px 0;
+    color: var(--text3); font-size: 13px;
+  }
+  .foot-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .foot-links { display: flex; gap: 20px; }
+  .foot-links a:hover { color: var(--text); }
+
+  /* ── 반응형 ── */
+  @media (max-width: 820px) {
+    .features { grid-template-columns: 1fr; }
+    .community { grid-template-columns: 1fr; }
+    .nav-links a:not(.discord):not(.download-nav) { display: none; }
+    .hero { padding: 60px 0 50px; }
+    section { padding: 60px 0; }
+    .download-box { padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">
+      <div class="logo-mark"><img src="data:image/jpeg;base64,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" alt="PigManager" /></div>
+      PigManager
+    </div>
+    <div class="nav-links">
+      <a href="#features">기능</a>
+      <a href="#download">다운로드</a>
+      <a href="https://github.com/9gunmo-alt/PigManager" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://discord.gg/DAWJvEEQeE" target="_blank" rel="noopener" class="discord">Discord</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="badge"><span class="dot"></span> v0.1.0 · 배포 중</div>
+    <h1>마인크래프트 서버,<br><span class="accent">누구나 쉽게</span> 열고 관리하기</h1>
+    <p class="sub">복잡한 명령어도, 콘솔 씨름도 없이. 서버 시작부터 모드 설치까지 클릭 몇 번이면 끝나는 데스크탑 앱.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://github.com/9gunmo-alt/PigManager/releases/latest" target="_blank" rel="noopener">
+        <i class="ti ti-download"></i> 다운로드
+      </a>
+      <a class="btn btn-ghost" href="https://discord.gg/DAWJvEEQeE" target="_blank" rel="noopener">
+        <i class="ti ti-brand-discord"></i> 디스코드 참여
+      </a>
+    </div>
+    <div class="meta">
+      <span><i class="ti ti-brand-windows"></i> Windows 10/11</span>
+      <span><i class="ti ti-tag"></i> v0.1.0</span>
+    </div>
+
+    <!-- 콘솔 미리보기 (시그니처 요소) -->
+    <div class="console-preview">
+      <div class="console-bar">
+        <div class="dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
+        <span class="title">PigManager — 콘솔</span>
+      </div>
+      <div class="console-body" id="console"></div>
+    </div>
+  </div>
+</header>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">// 기능</div>
+      <h2 class="section-title">서버 운영에 필요한 전부</h2>
+      <p class="section-desc">서버를 처음 여는 사람도, 모드팩을 친구들에게 나눠주려는 사람도. 필요한 도구를 한 곳에 담았어요.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="ic"><i class="ti ti-player-play"></i></div>
+        <h3>원클릭 서버 제어</h3>
+        <p>서버 시작·정지·재시작을 버튼 하나로. 실시간 콘솔과 RAM·CPU·TPS 모니터링까지 한눈에 봅니다.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><i class="ti ti-puzzle"></i></div>
+        <h3>모드 자동 설치</h3>
+        <p>Modrinth에서 바로 검색해 설치하고, 친구들에게는 GitHub 연동으로 모드팩을 자동 배포할 수 있어요.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><i class="ti ti-users"></i></div>
+        <h3>플레이어 관리</h3>
+        <p>접속자 확인, OP 부여, 킥·밴을 클릭으로. 접속 기록과 스킨 미리보기도 함께 제공합니다.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><i class="ti ti-coffee"></i></div>
+        <h3>Java 자동 감지</h3>
+        <p>설치된 Java를 자동으로 찾고, 없으면 앱에서 바로 설치. 버전 충돌로 고생할 일이 없어요.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><i class="ti ti-download"></i></div>
+        <h3>서버 코어 다운로드</h3>
+        <p>Paper, Purpur, Fabric 등 원하는 서버 코어를 앱에서 바로 받아 설치합니다.</p>
+      </div>
+      <div class="feature">
+        <div class="ic"><i class="ti ti-adjustments"></i></div>
+        <h3>간편한 설정 관리</h3>
+        <p>server.properties를 메모장 없이 UI로 편집. 날씨·시간·게임모드도 버튼으로 조정해요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section id="download">
+  <div class="wrap">
+    <div class="download-box">
+      <h2>지금 바로 시작하세요</h2>
+      <p>설치하고 서버 폴더만 선택하면 끝. 회원가입도, 로그인도 필요 없어요.</p>
+      <a class="btn btn-primary" href="https://github.com/9gunmo-alt/PigManager/releases/latest" target="_blank" rel="noopener" style="font-size:16px; padding:15px 32px;">
+        <i class="ti ti-download"></i> PigManager 다운로드
+      </a>
+      <div class="dl-meta">
+        <span><b>버전</b> v0.1.0</span>
+        <span><b>크기</b> 3.12 MB</span>
+        <span><b>플랫폼</b> Windows x64</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">// 커뮤니티</div>
+      <h2 class="section-title">함께 만들어가요</h2>
+      <p class="section-desc">버그 제보, 기능 제안, 사용법 질문은 디스코드에서. 여러분의 피드백으로 PigManager가 자라납니다.</p>
+    </div>
+    <div class="community">
+      <a class="comm-card discord" href="https://discord.gg/DAWJvEEQeE" target="_blank" rel="noopener">
+        <div class="comm-ic"><i class="ti ti-brand-discord"></i></div>
+        <h3>디스코드 서버</h3>
+        <p>업데이트 소식, 버그 제보, 사용법 질문과 답변. 같은 서버를 운영하는 사람들과 소통하세요.</p>
+        <span class="comm-link">참여하기 <i class="ti ti-arrow-right"></i></span>
+      </a>
+      <a class="comm-card support" href="https://discord.gg/DAWJvEEQeE" target="_blank" rel="noopener">
+        <div class="comm-ic"><i class="ti ti-heart"></i></div>
+        <h3>후원하기</h3>
+        <p>PigManager가 도움이 되셨다면, 작은 응원이 더 좋은 기능으로 이어집니다. (준비 중)</p>
+        <span class="comm-link">곧 만나요 <i class="ti ti-arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-inner">
+    <div class="logo" style="font-size:15px;">
+      <div class="logo-mark" style="width:24px;height:24px;"><img src="data:image/jpeg;base64,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" alt="PigManager" /></div>
+      PigManager
+    </div>
+    <div class="foot-links">
+      <a href="https://github.com/9gunmo-alt/PigManager" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://discord.gg/DAWJvEEQeE" target="_blank" rel="noopener">Discord</a>
+      <a href="https://github.com/9gunmo-alt/PigManager/releases" target="_blank" rel="noopener">릴리스</a>
+    </div>
+    <div>© 2026 PigManager</div>
+  </div>
+</footer>
+
+<script>
+  // 콘솔 타이핑 애니메이션 (시그니처)
+  const lines = [
+    { time: "[12:03:41]", tag: "INFO", cls: "info", msg: "Starting minecraft server version 1.21.1" },
+    { time: "[12:03:43]", tag: "INFO", cls: "info", msg: "Preparing level \"world\"" },
+    { time: "[12:03:45]", tag: "INFO", cls: "info", msg: 'Done (4.2s)! For help, type "help"' },
+    { time: "[12:03:52]", tag: "JOIN", cls: "join", msg: "Steve joined the game" },
+    { time: "[12:03:58]", tag: "JOIN", cls: "join", msg: "Alex joined the game" },
+    { time: "[12:04:10]", tag: "INFO", cls: "info", msg: "TPS: 20.0 — 서버 상태 양호" },
+  ];
+
+  const box = document.getElementById("console");
+  let li = 0;
+
+  function addLine() {
+    if (li >= lines.length) {
+      // 마지막에 깜빡이는 프롬프트
+      const p = document.createElement("div");
+      p.className = "c-line";
+      p.innerHTML = '<span class="c-cursor">&gt;</span> <span class="c-cursor blink">█</span>';
+      box.appendChild(p);
+      return;
+    }
+    const l = lines[li];
+    const row = document.createElement("div");
+    row.className = "c-line";
+    row.innerHTML =
+      '<span class="c-time">' + l.time + '</span>' +
+      '<span class="c-tag ' + l.cls + '">[' + l.tag + ']</span>' +
+      '<span class="c-msg"></span>';
+    box.appendChild(row);
+
+    const msgEl = row.querySelector(".c-msg");
+    let ci = 0;
+    const txt = l.msg;
+    (function type() {
+      if (ci <= txt.length) {
+        msgEl.textContent = txt.slice(0, ci);
+        ci++;
+        setTimeout(type, 18);
+      } else {
+        li++;
+        setTimeout(addLine, 380);
+      }
+    })();
+  }
+
+  // 화면에 보이면 시작 (reduced motion 존중)
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReduced) {
+    lines.forEach(l => {
+      const row = document.createElement("div");
+      row.className = "c-line";
+      row.innerHTML =
+        '<span class="c-time">' + l.time + '</span>' +
+        '<span class="c-tag ' + l.cls + '">[' + l.tag + ']</span>' +
+        '<span class="c-msg">' + l.msg + '</span>';
+      box.appendChild(row);
+    });
+  } else {
+    setTimeout(addLine, 600);
+  }
+</script>
+
+</body>
 </html>
