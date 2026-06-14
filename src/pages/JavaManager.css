@@ -1,0 +1,65 @@
+.java-content {
+  flex: 1; overflow-y: auto; padding: 16px 18px;
+  display: flex; flex-direction: column; gap: 24px;
+}
+.java-section {}
+.section-title-row { margin-bottom: 12px; }
+.section-title { font-size: 1em; font-weight: 700; color: var(--text); }
+.section-desc { font-size: 0.82em; color: var(--text3); margin-top: 2px; }
+
+.java-list { display: flex; flex-direction: column; gap: 8px; }
+.java-card {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 16px; border-radius: 10px;
+  background: var(--bg2); border: 1px solid var(--border);
+  transition: border-color 0.15s, background 0.15s;
+}
+.java-card:hover { border-color: var(--border2); background: var(--bg3); }
+.java-version-badge {
+  font-size: 0.85em; font-weight: 800;
+  padding: 4px 12px; border-radius: 6px; flex-shrink: 0;
+}
+.java-version-badge.green  { background: var(--green-bg);  color: var(--green); }
+.java-version-badge.blue   { background: var(--blue-bg);   color: var(--blue); }
+.java-version-badge.amber  { background: var(--amber-bg);  color: var(--amber); }
+.java-version-badge.gray   { background: var(--bg3);       color: var(--text3); }
+
+.java-info { flex: 1; min-width: 0; }
+.java-vendor { font-size: 0.9em; font-weight: 600; color: var(--text); }
+.java-path { font-size: 0.75em; color: var(--text3); font-family: monospace; margin-top: 2px; word-break: break-all; }
+.java-raw  { font-size: 0.72em; color: var(--text3); margin-top: 1px; }
+.java-status { font-size: 0.8em; color: var(--green); display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+
+.install-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px;
+  margin-bottom: 14px;
+}
+.install-card {
+  padding: 16px; border-radius: 10px;
+  background: var(--bg2); border: 1px solid var(--border);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  text-align: center;
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.2s;
+}
+.install-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+.install-card.installed { border-color: var(--green); }
+.install-card.installed:hover { border-color: var(--green); }
+.install-ver { font-size: 1.2em; font-weight: 800; color: var(--text); }
+.install-label { font-size: 0.75em; color: var(--text3); }
+.install-done { font-size: 0.82em; color: var(--green); display: flex; align-items: center; gap: 4px; }
+.install-btn { width: 100%; justify-content: center; font-size: 0.82em; }
+.install-msg { font-size: 0.72em; color: var(--text3); line-height: 1.4; }
+.install-msg.error { color: var(--red); }
+
+.install-notice {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: 0.82em; color: var(--text3);
+  background: var(--bg2); border: 1px solid var(--border);
+  padding: 10px 14px; border-radius: 8px;
+}
+.install-notice i { flex-shrink: 0; margin-top: 1px; }
+.install-notice strong { color: var(--text2); }

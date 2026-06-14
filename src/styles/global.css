@@ -1,0 +1,173 @@
+:root {
+  --font-size-base: 15px;
+}
+
+/* ── THEME: DARK ── */
+:root[data-theme="dark"], :root {
+  --bg:        #0d1117;
+  --bg2:       #161b22;
+  --bg3:       #21262d;
+  --bg4:       #30363d;
+  --border:    #30363d;
+  --border2:   #3d444d;
+  --text:      #e6edf3;
+  --text2:     #8b949e;
+  --text3:     #484f58;
+  --green:     #39d353;
+  --green-bg:  #102a1a;
+  --green-bd:  #1a4228;
+  --amber:     #e3b341;
+  --amber-bg:  #2d2100;
+  --amber-bd:  #3d2e00;
+  --red:       #f85149;
+  --red-bg:    #3d1515;
+  --red-bd:    #5a1e1e;
+  --blue:      #58a6ff;
+  --blue-bg:   #0d2140;
+  --blue-bd:   #1a3560;
+  --purple:    #bc8cff;
+  --purple-bg: #1e1535;
+}
+
+/* ── THEME: LIGHT ── */
+:root[data-theme="light"] {
+  --bg:        #f8f9fa;
+  --bg2:       #ffffff;
+  --bg3:       #f1f3f5;
+  --bg4:       #e9ecef;
+  --border:    #e9ecef;
+  --border2:   #dee2e6;
+  --text:      #212529;
+  --text2:     #868e96;
+  --text3:     #adb5bd;
+  --green:     #2f9e44;
+  --green-bg:  #ebfbee;
+  --green-bd:  #b2f2bb;
+  --amber:     #e67700;
+  --amber-bg:  #fff9db;
+  --amber-bd:  #ffe066;
+  --red:       #c92a2a;
+  --red-bg:    #fff5f5;
+  --red-bd:    #ffc9c9;
+  --blue:      #1971c2;
+  --blue-bg:   #e7f5ff;
+  --blue-bd:   #a5d8ff;
+  --purple:    #7048e8;
+  --purple-bg: #f3f0ff;
+}
+
+/* ── THEME: MIDNIGHT ── */
+:root[data-theme="midnight"] {
+  --bg:        #0a0a0f;
+  --bg2:       #111118;
+  --bg3:       #1a1a24;
+  --bg4:       #242430;
+  --border:    #242430;
+  --border2:   #2e2e3e;
+  --text:      #e8e8f0;
+  --text2:     #7c7c99;
+  --text3:     #44445a;
+  --green:     #a78bfa;
+  --green-bg:  #1e1a35;
+  --green-bd:  #2e2a50;
+  --amber:     #f472b6;
+  --amber-bg:  #2d1525;
+  --amber-bd:  #4a1f3a;
+  --red:       #f87171;
+  --red-bg:    #2d1515;
+  --red-bd:    #4a2020;
+  --blue:      #60a5fa;
+  --blue-bg:   #0f1f35;
+  --blue-bd:   #1a3050;
+  --purple:    #a78bfa;
+  --purple-bg: #1e1a35;
+}
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: var(--font-size-base); }
+body, #root {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.25s, color 0.25s;
+}
+
+/* ── 스크롤바 ── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 4px; transition: background 0.15s; }
+::-webkit-scrollbar-thumb:hover { background: var(--text3); }
+
+/* ── 기본 버튼 리셋 ── */
+button { cursor: pointer; font-family: inherit; }
+
+/* ── 공통 인풋 ── */
+input, select, textarea {
+  font-family: inherit;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 1em;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+input:hover, select:hover, textarea:hover { border-color: var(--text3); }
+input:focus, select:focus, textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--green) 15%, transparent);
+}
+
+/* ── 공통 버튼 ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 16px;
+  height: 34px;
+  border-radius: 6px;
+  border: 1px solid var(--border2);
+  background: var(--bg3);
+  color: var(--text);
+  font-size: 1em;
+  font-weight: 600;
+  font-family: inherit;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.1s, box-shadow 0.15s;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 1;
+}
+.btn i { font-size: 1em; flex-shrink: 0; }
+.btn:hover:not(:disabled) {
+  background: var(--bg4);
+  border-color: var(--text3);
+  color: var(--text);
+}
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* 버튼 컬러 variants */
+.btn-primary { background: var(--green-bg); border-color: var(--green-bd); color: var(--green); }
+.btn-primary:hover:not(:disabled) { background: var(--green); border-color: var(--green); color: #000; }
+
+.btn-green   { background: var(--green-bg); border-color: var(--green-bd); color: var(--green); }
+.btn-green:hover:not(:disabled)   { background: var(--green); border-color: var(--green); color: #000; }
+
+.btn-amber   { background: var(--amber-bg); border-color: var(--amber-bd); color: var(--amber); }
+.btn-amber:hover:not(:disabled)   { background: var(--amber); border-color: var(--amber); color: #000; }
+
+.btn-red     { background: var(--red-bg);   border-color: var(--red-bd);   color: var(--red); }
+.btn-red:hover:not(:disabled)     { background: var(--red);   border-color: var(--red);   color: #fff; }
+
+.btn-saved   { background: var(--blue-bg);  border-color: var(--blue-bd);  color: var(--blue); }
+.btn-saved:hover:not(:disabled)   { background: var(--blue);  border-color: var(--blue);  color: #fff; }
