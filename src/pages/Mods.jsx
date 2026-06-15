@@ -30,7 +30,7 @@ export default function Mods() {
   const [ghRepoUrl, setGhRepoUrl]     = useState(() => localStorage.getItem("gh_repo_url") || "");
   const [ghToken, setGhToken]         = useState(() => localStorage.getItem("gh_token") || "");
   const [ghRawUrl, setGhRawUrl]       = useState(() => localStorage.getItem("gh_raw_url") || "");
-  const [ghServerAddr, setGhServerAddr] = useState(() => localStorage.getItem("gh_server_addr") || "192.168.219.100:25565");
+  const [ghServerAddr, setGhServerAddr] = useState(() => localStorage.getItem("gh_server_addr") || "");
   const [syncing, setSyncing]         = useState(false);
   const [syncLog, setSyncLog]         = useState([]);
 
@@ -90,6 +90,7 @@ export default function Mods() {
     if (!server?.serverDir) { alert("서버를 먼저 선택해주세요!"); return; }
     if (!ghRepoUrl.trim())  { alert("GitHub 레포 URL을 입력해주세요!"); return; }
     if (!ghToken.trim())    { alert("GitHub 토큰을 입력해주세요!"); return; }
+    if (!ghServerAddr.trim()) { alert("서버 주소를 입력해주세요! (예: 123.45.67.89:25565)"); return; }
 
     localStorage.setItem("gh_repo_url", ghRepoUrl);
     localStorage.setItem("gh_token", ghToken);
@@ -124,7 +125,7 @@ export default function Mods() {
         token: ghToken.trim(),
         remoteUrl: ghRepoUrl.trim(),
         commitMsg,
-        serverAddress: ghServerAddr.trim() || "192.168.219.100:25565",
+        serverAddress: ghServerAddr.trim(),
         githubRepoRaw: rawUrl,
       });
 
@@ -299,7 +300,7 @@ export default function Mods() {
               <div className="form-group">
                 <label><i className="ti ti-server" /> 서버 주소</label>
                 <input
-                  placeholder="192.168.219.100:25565"
+                  placeholder="예: 123.45.67.89:25565"
                   value={ghServerAddr}
                   onChange={(e) => setGhServerAddr(e.target.value)}
                 />
